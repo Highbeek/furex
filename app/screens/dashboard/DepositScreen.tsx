@@ -4,29 +4,27 @@ import Layout from 'app/components/Layout';
 import {s} from 'react-native-size-matters';
 import CrypoScreen from 'app/components/CrypoScreen';
 import FiatScreen from 'app/components/FiatScreen';
-import FurexUser from 'app/components/FurexUser';
-import ExternalWallet from 'app/components/ExternalWallet';
 
 type TabItem = {
   title: string;
   content: ReactNode;
 };
 
-const WithdrawScreen = () => {
+const DepositScreen = () => {
   const [activeTab, setActiveTab] = useState<number>(0);
   const tabItems: TabItem[] = [
     {
-      title: 'Furex User',
-      content: <FurexUser />,
+      title: 'Crypto',
+      content: <CrypoScreen />,
     },
     {
-      title: 'External Wallet',
-      content: <ExternalWallet />,
+      title: 'Fiat',
+      content: <FiatScreen />,
     },
   ];
 
   return (
-    <Layout title="Send to">
+    <Layout title="Select Asset">
       <View style={styles.tabContainer}>
         {tabItems.map((tab, index) => (
           <TouchableOpacity
@@ -50,7 +48,7 @@ const WithdrawScreen = () => {
   );
 };
 
-export default WithdrawScreen;
+export default DepositScreen;
 
 const styles = StyleSheet.create({
   tabContainer: {

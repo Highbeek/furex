@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {s} from 'react-native-size-matters';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 interface LayoutProps {
   children?: ReactNode;
@@ -45,7 +45,7 @@ const Layout: FC<LayoutProps> = ({
           {title && (
             <View style={styles.header}>
               <Pressable onPress={onGoBack ?? navigation.goBack}>
-                <Icon name="arrow-back" size={26} color="#000" />
+                <Icon name="angle-left" size={26} color="#000" />
               </Pressable>
               <View style={styles.titleContainer}>
                 <Text style={styles.title}>{title}</Text>
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F2F1F6',
   },
   container: {
-    paddingHorizontal: s(15),
+    paddingHorizontal: s(10),
     paddingTop: s(20),
     flex: 1,
   },
@@ -75,6 +75,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: s(24),
     justifyContent: 'space-between',
+    borderBottomWidth: 1,
+    paddingVertical: s(10),
+    borderBottomColor: '#E2E2E2',
   },
   titleContainer: {
     flex: 1,
@@ -86,7 +89,8 @@ const styles = StyleSheet.create({
   title: {
     color: '#000',
     fontFamily: 'Sora',
-    fontSize: s(18),
+    fontSize: s(16),
+    fontWeight: '600',
   },
 });
 
