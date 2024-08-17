@@ -4,6 +4,7 @@ import WithdrawScreen from './WithdrawScreen';
 import DepositScreen from './DepositScreen';
 import ConfirmTransaction from './ConfirmTransaction';
 import TransferSuccessScreen from './TransferSuccessScreen';
+import EnterOtpScreen from './EnterOtpScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,6 +15,7 @@ export default function HomeStack() {
       <Stack.Screen name="Deposit" component={DepositScreen} />
       <Stack.Screen name="ConfirmTransaction" component={ConfirmTransaction} />
       <Stack.Screen name="Success" component={TransferSuccessScreen} />
+      <Stack.Screen name="OtpScreen" component={EnterOtpScreen} />
     </Stack.Navigator>
   );
 }

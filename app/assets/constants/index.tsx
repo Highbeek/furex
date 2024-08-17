@@ -104,10 +104,10 @@ export const dummyData = [
   },
   {
     title: 'Admin Fee',
-    val: 'Processing',
+    val: 'Free',
   },
   {
     title: 'Payment Status',
-    val: '000085752257',
+    val: 'Processing',
   },
 ];

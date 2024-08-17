@@ -12,6 +12,7 @@ import {
   TouchableWithoutFeedback,
   Dimensions,
   ImageBackground,
+  ScrollView,
 } from 'react-native';
 import {s} from 'react-native-size-matters';
 import {fiats} from 'app/assets/constants';
@@ -85,7 +86,7 @@ const FurexUser = () => {
   );
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text style={styles.label}>Enter Username</Text>
       <TextInput
         style={styles.input}
@@ -179,7 +180,7 @@ const FurexUser = () => {
           </ImageBackground>
         </TouchableWithoutFeedback>
       </Modal>
-    </View>
+    </ScrollView>
   );
 };
 

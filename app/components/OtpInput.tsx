@@ -1,6 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 import {s} from 'react-native-size-matters';
+import {StyleSheet} from 'react-native';
 
 interface OtpInputProps {
   length?: number;
@@ -19,11 +20,6 @@ export default function OtpInput({
 }: OtpInputProps) {
   const otpRef = useRef<OTPInputView>(null);
 
-  useEffect(() => {
-    // Any setup logic or alternative focus handling if needed
-    // Example: scrolling into view or highlighting input field
-  }, []);
-
   return (
     <OTPInputView
       ref={otpRef}
@@ -38,11 +34,13 @@ export default function OtpInput({
       keyboardType="number-pad"
       editable
       codeInputFieldStyle={{
-        backgroundColor: '#bbb',
-        color: '#ccc',
+        backgroundColor: '#fff',
+        borderWidth: 1,
+        borderColor: '#bbb',
+        color: '#171717',
         borderRadius: s(8),
         height: s(58),
-        borderWidth: 0,
+
         justifyContent: 'space-between',
         width: s(48),
       }}

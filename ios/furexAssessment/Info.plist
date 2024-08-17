@@ -49,15 +49,6 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Sora-Bold.ttf</string>
-		<string>Sora-ExtraBold.ttf</string>
-		<string>Sora-ExtraLight.ttf</string>
-		<string>Sora-Light.ttf</string>
-		<string>Sora-Medium.ttf</string>
-		<string>Sora-Regular.ttf</string>
-		<string>Sora-SemiBold.ttf</string>
-		<string>Sora-Thin.ttf</string>
-		<string>Sora.ttf</string>
 		<string>AntDesign.ttf</string>
 		<string>Entypo.ttf</string>
 		<string>EvilIcons.ttf</string>
@@ -79,7 +70,15 @@
 		<string>Fontisto.ttf</string>
 		<string>ocr-a-extended.ttf</string>
 		<string>ocr-a.ttf</string>
+		<string>Sora-Bold.ttf</string>
+		<string>Sora-ExtraBold.ttf</string>
+		<string>Sora-ExtraLight.ttf</string>
+		<string>Sora-Light.ttf</string>
+		<string>Sora-Medium.ttf</string>
+		<string>Sora-Regular.ttf</string>
+		<string>Sora-SemiBold.ttf</string>
+		<string>Sora-Thin.ttf</string>
+		<string>Sora.ttf</string>
 	</array>
-	
 </dict>
 </plist>

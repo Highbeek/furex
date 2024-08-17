@@ -5,9 +5,14 @@ import {cta} from 'app/assets/constants';
 import {TabItem} from 'app/types';
 import CrypoScreen from 'app/components/CrypoScreen';
 import FiatScreen from 'app/components/FiatScreen';
+import Icon from 'react-native-vector-icons/Feather';
+import {ngIcon, usd} from 'app/assets/images';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const WalletScreen = ({navigation}) => {
   const [activeTab, setActiveTab] = useState<number>(0);
+  const [toggleBalance, setToggleBalance] = useState<boolean>(false);
+
   const tabItems: TabItem[] = [
     {
       title: 'Crypto',
@@ -19,11 +24,62 @@ const WalletScreen = ({navigation}) => {
     },
   ];
 
+  const items = [
+    {
+      label: 'USD',
+      value: 'USD',
+      icon: usd,
+    },
+    {
+      label: 'NG',
+      value: 'NG',
+      icon: ngIcon,
+    },
+  ];
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.totalValue}>Est total value</Text>
-        <Text style={styles.value}>24,234.65</Text>
+        <View style={styles.balanceHeader}>
+          <Text style={styles.totalValue}>Est total value</Text>
+          <Icon
+            name={toggleBalance ? 'eye' : 'eye-off'}
+            size={s(20)}
+            onPress={() => setToggleBalance(!toggleBalance)}
+            style={styles.eyeIcon}
+          />
+        </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}>
+          <Text style={styles.value}>
+            {toggleBalance ? '24,234.65' : 'xxxxx'}
+          </Text>
+
+          <View>
+            {items.slice(0, 1).map(item => (
+              <TouchableOpacity
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  gap: 2,
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: 16,
+                  paddingHorizontal: 5,
+                }}>
+                <Image
+                  source={item.icon}
+                  style={{width: s(10), height: s(10), resizeMode: 'contain'}}
+                />
+                <Text>{item.label}</Text>
+                <MaterialIcons name="arrow-drop-down" size={24} />
+              </TouchableOpacity>
+            ))}
+          </View>
+        </View>
         <View style={styles.changeContainer}>
           <Text style={styles.change}>-$10.54 (-4.22%)</Text>
           <Text style={styles.changePeriod}>Today</Text>
@@ -42,23 +98,25 @@ const WalletScreen = ({navigation}) => {
           ))}
         </View>
       </View>
-      <View style={styles.tabContainer}>
-        {tabItems.map((tab, index) => (
-          <TouchableOpacity
-            key={index}
-            style={[styles.tab, activeTab === index && styles.activeTab]}
-            onPress={() => setActiveTab(index)}>
-            <Text
-              style={[
-                styles.tabText,
-                {color: activeTab === index ? '#171717' : '#969AA0'},
-              ]}>
-              {tab.title}
-            </Text>
-          </TouchableOpacity>
-        ))}
+      <View style={styles.tabCover}>
+        <View style={styles.tabContainer}>
+          {tabItems.map((tab, index) => (
+            <TouchableOpacity
+              key={index}
+              style={[styles.tab, activeTab === index && styles.activeTab]}
+              onPress={() => setActiveTab(index)}>
+              <Text
+                style={[
+                  styles.tabText,
+                  {color: activeTab === index ? '#171717' : '#969AA0'},
+                ]}>
+                {tab.title}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+        <View style={styles.tabContent}>{tabItems[activeTab].content}</View>
       </View>
-      <View style={styles.tabContent}>{tabItems[activeTab].content}</View>
     </View>
   );
 };
@@ -68,11 +126,16 @@ export default WalletScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    padding: s(20),
+    backgroundColor: '#F3F3F3',
   },
   header: {
     marginBottom: s(20),
+    paddingHorizontal: s(10),
+  },
+  balanceHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
   },
   totalValue: {
     fontFamily: 'Sora',
@@ -80,17 +143,21 @@ const styles = StyleSheet.create({
     fontSize: s(14),
     color: '#ABAAAA',
   },
+  eyeIcon: {
+    paddingLeft: s(10),
+  },
   value: {
     fontFamily: 'Sora',
-    fontWeight: '600',
-    fontSize: s(24),
+    fontWeight: '700',
+    fontSize: 32,
     color: '#171717',
     marginBottom: s(10),
   },
   changeContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     marginBottom: s(20),
+    gap: s(10),
   },
   change: {
     fontFamily: 'Sora',
@@ -147,6 +214,14 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: s(10),
   },
+  tabCover: {
+    backgroundColor: '#fff',
+    borderTopLeftRadius: s(20),
+    borderTopRightRadius: s(20),
+    flex: 1,
+    paddingTop: s(20),
+    paddingHorizontal: s(10),
+  },
   activeTab: {
     backgroundColor: '#fff',
   },
@@ -156,5 +231,15 @@ const styles = StyleSheet.create({
   },
   tabContent: {
     flex: 1,
+    backgroundColor: '#fff',
+    borderBottomLeftRadius: s(20),
+    borderBottomRightRadius: s(20),
+    paddingHorizontal: s(20),
+    paddingVertical: s(10),
+  },
+  icon: {
+    width: s(14),
+    height: s(14),
+    resizeMode: 'contain',
   },
 });

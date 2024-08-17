@@ -29,7 +29,12 @@ const ConfirmTransaction = ({route}: any) => {
 
   const handlePressNumber = (number: string) => {
     if (pin.length < 4) {
-      setPin(pin + number);
+      const newPin = pin + number;
+      setPin(newPin);
+
+      if (newPin.length === 4) {
+        navigation.navigate('OtpScreen');
+      }
     }
   };
 
