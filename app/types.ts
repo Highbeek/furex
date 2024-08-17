@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import {ReactNode} from 'react';
 
 export type MainNavParamList = {
   HomeTab: undefined;
@@ -12,3 +12,11 @@ export type TabItem = {
   title: string;
   content: ReactNode;
 };
+
+export interface OtpInputProps {
+  length?: number;
+  secure?: boolean;
+  onCompleted?: (value: string) => void;
+  value?: string;
+  onChange?: (value: string) => void;
+}

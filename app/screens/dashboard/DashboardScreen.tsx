@@ -1,5 +1,4 @@
 import {
-  SafeAreaView,
   StyleSheet,
   Text,
   View,
@@ -23,26 +22,13 @@ import {
 } from 'app/assets/images';
 import {s} from 'react-native-size-matters';
 import Icon from 'react-native-vector-icons/Feather';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import BillsPayment from 'app/components/BillsPayment';
-import {bills, cta} from 'app/assets/constants';
+import {bills, cta, items} from 'app/assets/constants';
 import SvgTransaction from 'app/assets/images/transaction.svg';
 
 const DashboardScreen = ({navigation}) => {
   const [toggleBalance, setToggleBalance] = useState<boolean>(false);
-  const [open, setOpen] = useState(false);
-  const [value, setValue] = useState('USD');
-  const [items, setItems] = useState([
-    {
-      label: 'USD',
-      value: 'USD',
-      icon: () => <Image source={usd} style={styles.icon} />,
-    },
-    {
-      label: 'NG',
-      value: 'NG',
-      icon: () => <Image source={ngIcon} style={styles.icon} />,
-    },
-  ]);
 
   const transactionHistory = 0;
 
@@ -78,19 +64,30 @@ const DashboardScreen = ({navigation}) => {
                   <Text style={styles.amt}>24,234.65</Text>
                 </View>
                 <View style={styles.drop}>
-                  <DropDownPicker
-                    open={open}
-                    value={value}
-                    items={items}
-                    setOpen={setOpen}
-                    setValue={setValue}
-                    setItems={setItems}
-                    placeholder="Select Currency"
-                    style={styles.dropdownStyle}
-                    dropDownContainerStyle={styles.dropdownContainerStyle}
-                    labelStyle={styles.dropdownLabelStyle}
-                    showArrowIcon={true}
-                  />
+                  {items.slice(0, 1).map(item => (
+                    <TouchableOpacity
+                      key={item.value}
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        backgroundColor: '#DDF2FE',
+                        borderRadius: 20,
+                        paddingVertical: 5,
+                        paddingHorizontal: 10,
+                        gap: 2,
+                      }}>
+                      <Image
+                        source={item.icon}
+                        style={{
+                          width: s(10),
+                          height: s(10),
+                          resizeMode: 'contain',
+                        }}
+                      />
+                      <Text>{item.label}</Text>
+                      <MaterialIcons name="arrow-drop-down" size={24} />
+                    </TouchableOpacity>
+                  ))}
                 </View>
               </View>
               <View style={styles.cta}>
@@ -179,7 +176,6 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
     overflow: 'hidden',
-    paddingTop: s(20),
   },
   header: {
     flexDirection: 'row',
@@ -232,7 +228,6 @@ const styles = StyleSheet.create({
   },
   drop: {
     marginLeft: s(20),
-    width: s(120),
     zIndex: 10,
   },
   dropdownStyle: {
@@ -264,6 +259,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: s(20),
+    paddingBottom: s(20),
   },
   ctaContainer: {
     flex: 1,

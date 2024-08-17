@@ -15,6 +15,7 @@ import {
   shilling,
   zm,
   xaf,
+  usd,
 } from 'app/assets/images';
 
 export const cta = [
@@ -109,5 +110,18 @@ export const dummyData = [
   {
     title: 'Payment Status',
     val: 'Processing',
+  },
+];
+
+export const items = [
+  {
+    label: 'USD',
+    value: 'USD',
+    icon: usd,
+  },
+  {
+    label: 'NG',
+    value: 'NG',
+    icon: ngIcon,
   },
 ];

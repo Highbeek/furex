@@ -1,7 +1,7 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {useState} from 'react';
 import {s} from 'react-native-size-matters';
-import {cta} from 'app/assets/constants';
+import {cta, items} from 'app/assets/constants';
 import {TabItem} from 'app/types';
 import CrypoScreen from 'app/components/CrypoScreen';
 import FiatScreen from 'app/components/FiatScreen';
@@ -21,19 +21,6 @@ const WalletScreen = ({navigation}) => {
     {
       title: 'Fiat',
       content: <FiatScreen />,
-    },
-  ];
-
-  const items = [
-    {
-      label: 'USD',
-      value: 'USD',
-      icon: usd,
-    },
-    {
-      label: 'NG',
-      value: 'NG',
-      icon: ngIcon,
     },
   ];
 
@@ -88,7 +75,7 @@ const WalletScreen = ({navigation}) => {
         <View style={styles.cta}>
           {cta.map(action => (
             <TouchableOpacity
-              key={action.name} // Unique key prop
+              key={action.name}
               style={styles.ctaContainer}
               onPress={() =>
                 navigation.navigate('Home', {screen: action.name})

@@ -1,15 +1,7 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useRef} from 'react';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 import {s} from 'react-native-size-matters';
-import {StyleSheet} from 'react-native';
-
-interface OtpInputProps {
-  length?: number;
-  secure?: boolean;
-  onCompleted?: (value: string) => void;
-  value?: string;
-  onChange?: (value: string) => void;
-}
+import {OtpInputProps} from 'app/types';
 
 export default function OtpInput({
   length = 6,
