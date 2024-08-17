@@ -6,11 +6,7 @@ import CrypoScreen from 'app/components/CrypoScreen';
 import FiatScreen from 'app/components/FiatScreen';
 import FurexUser from 'app/components/FurexUser';
 import ExternalWallet from 'app/components/ExternalWallet';
-
-type TabItem = {
-  title: string;
-  content: ReactNode;
-};
+import {TabItem} from 'app/types';
 
 const WithdrawScreen = () => {
   const [activeTab, setActiveTab] = useState<number>(0);
@@ -36,7 +32,7 @@ const WithdrawScreen = () => {
             <Text
               style={[
                 styles.tabText,
-                {color: activeTab === index ? '#171717' : '#fff'},
+                {color: activeTab === index ? '#171717' : '#969AA0'},
               ]}>
               {tab.title}
             </Text>
@@ -57,7 +53,7 @@ const styles = StyleSheet.create({
     borderRadius: s(895),
     paddingHorizontal: s(4),
     paddingVertical: s(4),
-    backgroundColor: '#ccc',
+    backgroundColor: '#F3F3F3',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -70,7 +66,7 @@ const styles = StyleSheet.create({
     paddingVertical: s(10),
   },
   activeTab: {
-    backgroundColor: '#F3F3F3',
+    backgroundColor: '#ffff',
     borderRadius: s(895),
     borderWidth: 0,
   },

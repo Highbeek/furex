@@ -63,7 +63,7 @@ const Layout: FC<LayoutProps> = ({
 const styles = StyleSheet.create({
   safeView: {
     flex: 1,
-    backgroundColor: '#F2F1F6',
+    backgroundColor: '#fff',
   },
   container: {
     paddingHorizontal: s(10),

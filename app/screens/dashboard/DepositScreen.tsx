@@ -34,7 +34,7 @@ const DepositScreen = () => {
             <Text
               style={[
                 styles.tabText,
-                {color: activeTab === index ? '#171717' : '#fff'},
+                {color: activeTab === index ? '#171717' : '#969AA0'},
               ]}>
               {tab.title}
             </Text>
@@ -55,10 +55,11 @@ const styles = StyleSheet.create({
     borderRadius: s(895),
     paddingHorizontal: s(4),
     paddingVertical: s(4),
-    backgroundColor: '#ccc',
+    backgroundColor: '#F3F3F3',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    height: s(47),
   },
   tab: {
     borderRadius: s(895),
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
     paddingVertical: s(10),
   },
   activeTab: {
-    backgroundColor: '#F3F3F3',
+    backgroundColor: '#ffff',
     borderRadius: s(895),
     borderWidth: 0,
   },

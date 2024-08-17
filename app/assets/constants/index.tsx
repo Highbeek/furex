@@ -80,3 +80,34 @@ export const fiats = [
     icon: xaf,
   },
 ];
+
+export const dummyData = [
+  {
+    title: 'Details',
+    val: '000085752257',
+  },
+  {
+    title: 'Payment Time',
+    val: '25-02-2023, 13:22:16',
+  },
+  {
+    title: 'Payment Method',
+    val: 'External Transfer',
+  },
+  {
+    title: 'Receiver',
+    val: 'Furetin',
+  },
+  {
+    title: 'Amount',
+    val: '0.000034455 BTC',
+  },
+  {
+    title: 'Admin Fee',
+    val: 'Processing',
+  },
+  {
+    title: 'Payment Status',
+    val: '000085752257',
+  },
+];

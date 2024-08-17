@@ -34,6 +34,9 @@ import zm from './zm.png';
 import card from './card.png';
 import trade from './trade.png';
 import progress from './progress.png';
+import down from './arrow-down.png';
+import modalBg from './Subtract.png';
+import check from './tick-circle.png';
 
 export {
   add,
@@ -72,4 +75,7 @@ export {
   card,
   trade,
   progress,
+  down,
+  modalBg,
+  check,
 };
