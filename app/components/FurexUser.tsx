@@ -43,7 +43,15 @@ const FurexUser = () => {
     }).start();
   }, [modalVisible]);
 
-  const handleCurrencySelect = currency => {
+  const handleCurrencySelect = (
+    currency: React.SetStateAction<{
+      name: string;
+      code: string;
+      amt: string;
+      bal: string;
+      icon: any;
+    }>,
+  ) => {
     setSelectedCurrency(currency);
     setModalVisible(false);
   };
@@ -172,7 +180,7 @@ const FurexUser = () => {
               </View>
               <FlatList
                 data={fiats}
-                keyExtractor={item => item.code}
+                keyExtractor={item => item.name}
                 renderItem={renderItem}
                 showsVerticalScrollIndicator={false}
               />

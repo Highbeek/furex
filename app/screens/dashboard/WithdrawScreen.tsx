@@ -2,8 +2,6 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {ReactNode, useState} from 'react';
 import Layout from 'app/components/Layout';
 import {s} from 'react-native-size-matters';
-import CrypoScreen from 'app/components/CrypoScreen';
-import FiatScreen from 'app/components/FiatScreen';
 import FurexUser from 'app/components/FurexUser';
 import ExternalWallet from 'app/components/ExternalWallet';
 import {TabItem} from 'app/types';

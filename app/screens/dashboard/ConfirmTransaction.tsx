@@ -5,8 +5,6 @@ import {
   View,
   Image,
   Modal,
-  TouchableOpacity,
-  SafeAreaView,
   ImageBackground,
   TouchableWithoutFeedback,
   Keyboard,

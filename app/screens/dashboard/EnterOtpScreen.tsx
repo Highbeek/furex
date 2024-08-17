@@ -24,7 +24,7 @@ const EnterOtpScreen = ({navigation}) => {
         <Text style={styles.txt}>Didn’t get the code?</Text>
         <Text style={styles.actionTxt}>Send Again</Text>
       </View>
-      <View style={styles.buttonContainer}>
+      <View>
         <Button
           title="Next"
           onPress={() => {

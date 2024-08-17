@@ -44,7 +44,7 @@ const WalletScreen = ({navigation}) => {
           <Text style={styles.totalValue}>Est total value</Text>
           <Icon
             name={toggleBalance ? 'eye' : 'eye-off'}
-            size={s(20)}
+            size={s(12)}
             onPress={() => setToggleBalance(!toggleBalance)}
             style={styles.eyeIcon}
           />
@@ -62,6 +62,7 @@ const WalletScreen = ({navigation}) => {
           <View>
             {items.slice(0, 1).map(item => (
               <TouchableOpacity
+                key={item.value}
                 style={{
                   flexDirection: 'row',
                   alignItems: 'center',
@@ -85,9 +86,9 @@ const WalletScreen = ({navigation}) => {
           <Text style={styles.changePeriod}>Today</Text>
         </View>
         <View style={styles.cta}>
-          {cta.map((action, index) => (
+          {cta.map(action => (
             <TouchableOpacity
-              key={index}
+              key={action.name} // Unique key prop
               style={styles.ctaContainer}
               onPress={() =>
                 navigation.navigate('Home', {screen: action.name})

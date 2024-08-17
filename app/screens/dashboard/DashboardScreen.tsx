@@ -20,7 +20,6 @@ import {
   promo,
   progress,
   right,
-  transaction,
 } from 'app/assets/images';
 import {s} from 'react-native-size-matters';
 import Icon from 'react-native-vector-icons/Feather';
